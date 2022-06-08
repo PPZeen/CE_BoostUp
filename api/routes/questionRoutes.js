@@ -1,7 +1,6 @@
-const submitBuilder = require('../controllers/questionController');
+const questionBuilder = require('../controllers/questionController');
 
 module.exports = app => {
-    app
-        .route('/questions')
-        .post();
+    app.get('/questions', questionBuilder.list_all_questions);
+    app.post('/questions/create', questionBuilder.create_question);
 };

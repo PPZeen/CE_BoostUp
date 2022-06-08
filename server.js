@@ -3,8 +3,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-global.Task = require('./api/models/userModel');
-const routes = require('./api/routes/userRoutes');
+global.User = require('./api/models/userModel');
+global.Submit = require('./api/models/submitModel');
+global.Question = require('./api/models/questionModel');
+
+const userRoutes = require('./api/routes/userRoutes');
+const submitRoutes = require('./api/routes/submitRoutes');
+const questionRoutes = require('./api/routes/questionRoutes');
 
 mongoose.connect(
     'mongodb://localhost/myUserAdmin',
@@ -18,7 +23,9 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended:true})); //app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.json()); //app.use(express.json());
 
-routes(app);
+userRoutes(app);
+submitRoutes(app);
+questionRoutes(app);
 
 app.listen(port)
 app.use((req, res) => {

@@ -10,8 +10,7 @@ const submitSchema = new Schema(
         },
         questionId: {
             type: String,
-            required: 'questionId cannot be blank'
-            
+            required: 'questionId cannot be blank' 
         },
         status: {
             type: Boolean,

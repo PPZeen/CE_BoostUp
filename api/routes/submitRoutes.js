@@ -1,7 +1,6 @@
 const submitBuilder = require('../controllers/submitController');
 
 module.exports = app => {
-    app
-        .route('/submits')
-        .post();
+    app.get('/submits', submitBuilder.list_all_submits);
+    app.post('/submits/create', submitBuilder.create_submit);
 };
